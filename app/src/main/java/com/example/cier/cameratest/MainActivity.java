@@ -22,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static Camera getCameraInstance(){
+        Camera camera=null;
+        try {
+            camera=Camera.open();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return camera;
+    }
+
     /**
      * check if the phone support camera
      * @param context
