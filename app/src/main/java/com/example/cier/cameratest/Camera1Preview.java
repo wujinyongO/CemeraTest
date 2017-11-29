@@ -3,6 +3,7 @@ package com.example.cier.cameratest;
 import android.content.Context;
 import android.hardware.Camera;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -12,11 +13,12 @@ import java.io.IOException;
  * Created by user on 2017/11/28.
  */
 
-public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback{
+public class Camera1Preview extends SurfaceView implements SurfaceHolder.Callback{
+    private static final String TAG = "CameraPreview";
     private SurfaceHolder mHolder;
     private Camera mCamera;
 
-    public CameraPreview(Context context, Camera camera) {
+    public Camera1Preview(Context context, Camera camera) {
         super(context);
         mCamera=camera;
 
@@ -33,6 +35,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             e.printStackTrace();
         }
         mCamera.startPreview();
+        Log.i(TAG,"mCamera.startPreview");
     }
 
     @Override

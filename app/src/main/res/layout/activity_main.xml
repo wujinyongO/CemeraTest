@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.cier.cameratest.MainActivity">
+    android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_weight="1"
-        android:id="@+id/camera_preview"
+    <SurfaceView
+        android:id="@+id/surfaceView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
-    <Button
-        android:id="@+id/button_capture"
-        android:text="Capture"
-        android:layout_gravity="center|bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:background="#EEEEEE"
+        android:id="@+id/show"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        android:layout_width="180dp"
+        android:layout_height="320dp" />
+
+</RelativeLayout>
