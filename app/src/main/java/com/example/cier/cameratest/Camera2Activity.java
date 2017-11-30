@@ -84,10 +84,31 @@ public class Camera2Activity extends AppCompatActivity implements View.OnClickLi
 
     private static int photoAmount=10;
 
+    private boolean ready=false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Log.i(TAG,"startThread");
+//                while(true) {
+//                    if (ready) {
+//                        try {
+//                            Thread.sleep(500);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                        takePicture();
+//                        Log.i(TAG, "subThread->take photo");
+//                    }
+//                }
+//            }
+//        }).start();
+
         checkPermission();
 
         initView();
@@ -277,11 +298,11 @@ public class Camera2Activity extends AppCompatActivity implements View.OnClickLi
                         CameraCaptureSession.CaptureCallback mCaptureCallback = new CameraCaptureSession.CaptureCallback() {
                             @Override
                             public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result) {
-                                Log.i(TAG,"mCaptureCallback -> onCaptureCompleted");
-                                
+
                             }
                         };
                         //
+                        ready=true;
                         mCameraCaptureSession.setRepeatingRequest(previewRequest, mCaptureCallback, childHandler);
                     } catch (CameraAccessException e) {
                         e.printStackTrace();
